@@ -35,6 +35,10 @@ export default function ProductDetails() {
 
     async function addTOCart(e) {
         e.preventDefault()
+        if (!userCredentials){
+            navigate("/auth/login")
+            return
+        }
         const form_data = new FormData(e.target);
         form_data.append("id", params.id);
         form_data.append("sessionID", userCredentials.sessionID) //add an entry to the form\
