@@ -61,11 +61,11 @@ export function Navbar() {
                     </div>
                     { !userCredentials &&
                     <ul className="navbar-nav mx-2">
-                        <li className="nav-item">
+                        <li className="nav-item my-1">
                             <Link className="btn btn-outline-primary me-2" to="/auth/register" role="button">Register</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="btn btn-primary" to="/auth/login" role="button">Login</Link>
+                        <li className="nav-item my-1">
+                            <Link className="btn btn-primary" to="/auth/login" role="button">&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;</Link>
                         </li>
                     </ul>
                     }
