@@ -58,8 +58,7 @@ export function Navbar() {
                                 </ul>
                             </li>
                             </ul>}
-                    </div>
-                    { !userCredentials &&
+                        { !userCredentials &&
                     <ul className="navbar-nav mx-2">
                         <li className="nav-item my-1">
                             <Link className="btn btn-outline-primary me-2" to="/auth/register" role="button">Register</Link>
@@ -69,6 +68,8 @@ export function Navbar() {
                         </li>
                     </ul>
                     }
+                    </div>
+                    
                 </div>
             </nav>
         </>
