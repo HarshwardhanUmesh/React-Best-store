@@ -56,6 +56,16 @@ export default function ProductDetails() {
             }
         }
     }
+    function toIndianFormat(n) {
+    let num = n.toString().split('.');
+    let lastThree = num[0].substring(num[0].length - 3);
+    let otherNumbers = num[0].substring(0, num[0].length - 3);
+    if (otherNumbers !== '') {
+      lastThree = ',' + lastThree;
+    }
+    let result = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+    return num.length > 1 ? result + "." + num[1] : result;
+  }
      
     return (
         <>
@@ -66,7 +76,7 @@ export default function ProductDetails() {
                     </div>
                     <div className="col-md-8">
                         <h3 className="mb-3">{product.name}</h3>
-                        <h3 className="mb-3">{product.price}&nbsp;$</h3>
+                        <h3 className="mb-3">{toIndianFormat(product.price)}&nbsp;₹</h3>
                         <form className="d-flex mb-3 text-center" onSubmit={addTOCart}>
                             <p className="me-2 pt-2">Qty:</p>
                             <input className="form-control form-control-sm me-3 mt-1" name="quantity" type="number" step={1} min={1} max={9} defaultValue={1} style={{ width: "50px" ,height:"30px"}} />
