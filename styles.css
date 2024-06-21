@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "Chalk Line Outline";
+    /* src:local("Chalk Line Outline") url("./Chalk\ Line\ Outline.ttf") ,format("truetype"); */
+    src: url("./ChalkLine-Outline.otf"), format("opentype");
+}
+@font-face {
+    font-family: "garto";
+    src: url("./garto16.ttf"), format("truetype");
+}
+
+@font-face {
+    font-family: "ChalkVibes";
+    src: url("./Chalkvibes\ Demo.otf"), format("opentype");
+}
+
+@font-face {
+    font-family: "Rudiment";
+    src: url("./Rudiment.ttf"), format("truetype");
+}
+.body {
+    font-family: "Quicksand", sans-serif !important;
+}
