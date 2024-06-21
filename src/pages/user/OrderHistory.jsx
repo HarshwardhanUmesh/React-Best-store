@@ -60,6 +60,17 @@ export default function OrderHistory() {
         return total
     }
     console.log(JSON.stringify(orderHistoryDetails))
+    function toIndianFormat(n) {
+        if (n === undefined) return
+        let num = n.toString().split('.');
+        let lastThree = num[0].substring(num[0].length - 3);
+        let otherNumbers = num[0].substring(0, num[0].length - 3);
+        if (otherNumbers !== '') {
+            lastThree = ',' + lastThree;
+        }
+        let result = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+        return num.length > 1 ? result + "." + num[1] : result;
+    }
     return (
         <div className="container my-4 p-4 border rounded text-center">
             <h2 className="mb-5 text-start">Your Order History</h2>
@@ -77,7 +88,7 @@ export default function OrderHistory() {
                                         <div className="col-md-6">
                                             <div className="col-md-6 text-center">
                                                 <p className="mb-1">TOTAL</p>
-                                                <p className="mb-1">{getTotal(order.items)}$</p>
+                                                <p className="mb-1">{toIndianFormat(getTotal(order.items))} ₹</p>
                                             </div>
                                         </div>
                                     </div>
@@ -113,7 +124,7 @@ export default function OrderHistory() {
                                                                         <p className="mb-1">{value.description.slice(0, 80)}...</p>
                                                                         <div className="d-flex mt-3 justify-content-between">
                                                                             <p className="mb-1">Qty: {value.quantity}</p>
-                                                                            <p className="mb-1 ms-5">Price: {value.price}$</p>
+                                                                            <p className="mb-1 ms-5">Price: {toIndianFormat(value.price)} ₹</p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
