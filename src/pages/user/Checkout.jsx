@@ -155,7 +155,7 @@ export default function Checkout() {
                             <div className="border  rounded p-4  mx-auto" style={stage === 3 ? { display: 'block' } : { display: 'none' }}>
                                 <h3></h3>
                                 <big><p style={{ color: "green" }}>Arriving on {getCurrentDate()} </p></big>
-                                <p>Items dispatched by Prime Store &nbsp; <img src="./logo.png" width="15" height="15" /></p>
+                                <p>Items dispatched by Prime Store &nbsp; <img src="/logo.png" width="15" height="15" /></p>
                                 <div className="row mx-5 ">
                                     {Object.entries(cartDetails).map(entry => {
                                         if (entry[1].checked == 1) {
