@@ -82,7 +82,7 @@ export function Footer() {
             <footer className="text-center p-3 border-top d-flex justify-content-center align-items-center" >
                         <img src="./logo.png" alt=""  height="34" className="me-2 d-inline-block align-text-top" />
                         <h1 className="m-0 me-3" style={{fontFamily: "Quicksand, sans-serif", fontSize: "20px" ,fontWeight: "500" }}>Prime Store</h1>
-                        <p>Copyright ©2024. All rights reserved.</p>
+                        <p className="m-0">Copyright ©2024. All rights reserved.</p>
             </footer>
         </>
     )
