@@ -137,7 +137,7 @@ export default function Checkout() {
                                 <div className="form-check border  p-2 d-flex">
                                     <input className="form-check-input mx-1" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
                                     <label className="form-check-label mx-2">
-                                        Wallet  (0.00$) &nbsp;&nbsp;
+                                        Wallet  (0.00₹) &nbsp;&nbsp;
                                         <img width="30" height="30" src="https://img.icons8.com/color/48/wallet--v1.png" alt="wallet--v1" />           </label>
                                 </div>
                                 <div className="d-flex justify-content-between" >
