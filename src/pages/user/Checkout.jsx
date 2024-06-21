@@ -74,6 +74,17 @@ export default function Checkout() {
             console.log(error);
         }
     }
+    function toIndianFormat(n) {
+        if (n === undefined) return
+        let num = n.toString().split('.');
+        let lastThree = num[0].substring(num[0].length - 3);
+        let otherNumbers = num[0].substring(0, num[0].length - 3);
+        if (otherNumbers !== '') {
+            lastThree = ',' + lastThree;
+        }
+        let result = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+        return num.length > 1 ? result + "." + num[1] : result;
+    }
     return (
         <>
             <div className="container my-4 ">
@@ -154,7 +165,7 @@ export default function Checkout() {
                                                         <div className="row ">
                                                             <div className="col-md-3 text-center ">
                                                                 <img src={`https://best-store-api-77f5ba459c2e.herokuapp.com/images/${entry[1].imageFilename}`} height="70" alt="product" />
-                                                                <p className="mt-2">Price : {entry[1].price}.00 $</p>
+                                                                <p className="mt-2">Price : {toIndianFormat(entry[1].price)}.00 ₹</p>
                                                             </div>
                                                             <div className="col-md-8">
                                                                 <big><p className="m-0">{entry[1].name}</p></big>
@@ -189,20 +200,20 @@ export default function Checkout() {
                             <h3>Cart summary</h3><hr />
                             <div className="d-flex justify-content-between px-5" style={{"line-height" : "1.2"}}>
                                 <p>SubTotal :-</p>
-                                <p>{`${Object.values(cartDetails).reduce((acc, curr) => acc + (curr.checked == 1 ? curr.price * curr.quantity : 0), 0)} $`}</p>
+                                <p>{`${toIndianFormat(Object.values(cartDetails).reduce((acc, curr) => acc + (curr.checked == 1 ? curr.price * curr.quantity : 0), 0))} ₹`}</p>
                             </div>
                             <div className="d-flex justify-content-between px-5" style={{"line-height" : "1.2"}}>
                                 <p>Shipping :-</p>
-                                <p>40 $</p>
+                                <p>40 ₹</p>
                             </div>
                             <div className="d-flex justify-content-between px-5" style={{"line-height" : "1.2"}}>
                                 <p style={{"color" : "green"}}>Discount :-</p>
-                                <p style={{"color" : "green"}}>-80 $</p>
+                                <p style={{"color" : "green"}}>-80 ₹</p>
                             </div>
                             <hr className="my-2"/>
                             <div className="d-flex justify-content-between px-5" style={{"line-height" : "1.5"}}>
                                 <big><p className="px-1">Total</p></big>
-                                <big><p>{`${Object.values(cartDetails).reduce((acc, curr) => acc + (curr.checked == 1 ? curr.price * curr.quantity : 0), -40)} $`}</p></big>
+                                <big><p>{`${toIndianFormat(Object.values(cartDetails).reduce((acc, curr) => acc + (curr.checked == 1 ? curr.price * curr.quantity : 0), -40))} ₹`}</p></big>
                             </div>
                             <div className="text-center"><p className="text-success my-0">You will save 40$ on this order!</p></div>
                             
