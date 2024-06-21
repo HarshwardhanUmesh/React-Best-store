@@ -155,7 +155,7 @@ export default function Checkout() {
                             <div className="border  rounded p-4  mx-auto" style={stage === 3 ? { display: 'block' } : { display: 'none' }}>
                                 <h3></h3>
                                 <big><p style={{ color: "green" }}>Arriving on {getCurrentDate()} </p></big>
-                                <p>Items dispatched by Best Store &nbsp; <img src="https://best-store-api-77f5ba459c2e.herokuapp.com/static/icon.png" width="15" height="15" /></p>
+                                <p>Items dispatched by Prime Store &nbsp; <img src="./logo.png" width="15" height="15" /></p>
                                 <div className="row mx-5 ">
                                     {Object.entries(cartDetails).map(entry => {
                                         if (entry[1].checked == 1) {
@@ -215,7 +215,7 @@ export default function Checkout() {
                                 <big><p className="px-1">Total</p></big>
                                 <big><p>{`${toIndianFormat(Object.values(cartDetails).reduce((acc, curr) => acc + (curr.checked == 1 ? curr.price * curr.quantity : 0), -40))} ₹`}</p></big>
                             </div>
-                            <div className="text-center"><p className="text-success my-0">You will save 40$ on this order!</p></div>
+                            <div className="text-center"><p className="text-success my-0">You will save 40₹ on this order!</p></div>
                             
                         </div>
                     </div>
