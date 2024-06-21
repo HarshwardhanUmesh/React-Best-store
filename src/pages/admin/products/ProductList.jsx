@@ -67,6 +67,17 @@ export default function ProductList() {
         setPage(1)
         setSearchString(searchText)
     }
+        function toIndianFormat(n) {
+        if (n === undefined) return
+        let num = n.toString().split('.');
+        let lastThree = num[0].substring(num[0].length - 3);
+        let otherNumbers = num[0].substring(0, num[0].length - 3);
+        if (otherNumbers !== '') {
+            lastThree = ',' + lastThree;
+        }
+        let result = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+        return num.length > 1 ? result + "." + num[1] : result;
+    }
     return (
         <div className="container my-4">
             <h2 className="text-center mb-4">Product List</h2>
@@ -123,7 +134,7 @@ export default function ProductList() {
                             <td className="text-center" >{product.name}</td>
                             <td className="text-center">{product.brand}</td>
                             <td className="text-center">{product.category}</td>
-                            <td className="text-center">{product.price}$</td>
+                            <td className="text-center">{toIndianFormat(product.price)} ₹</td>
                             <td className="text-center"><img src={`https://best-store-api-77f5ba459c2e.herokuapp.com/images/${product.imageFilename}`} alt="Product" width="100" height="auto" /></td>
                             <td className="text-center">{product.createdAt.slice(0, 10)}</td>
                             <td className="text-center">
