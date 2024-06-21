@@ -9,9 +9,9 @@ export function Navbar() {
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light" >
                 <div className="container">
-                    <Link className="navbar-brand" to='/'>
-                        <img src="https://best-store-api-77f5ba459c2e.herokuapp.com/static/icon.png" alt="" width="30" height="24" className="me-2 d-inline-block align-text-top" />
-                        Best Store
+                    <Link className="navbar-brand text-center p-0 d-flex align-items-center" to='/'>
+                        <img src="./logo.png" alt="Logo"  height="34" className="me-2 d-inline-block align-text-top" />
+                        <h1 className="m-0" style={{fontFamily: "Quicksand, sans-serif", fontSize: "20px" ,fontWeight: "500" }}>Prime Store</h1>
                     </Link>
 
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,9 +79,9 @@ export function Navbar() {
 export function Footer() {
     return (
         <>
-            <footer className="text-center p-3 border-top" >
-                <img src="https://best-store-api-77f5ba459c2e.herokuapp.com/static/icon.png" alt="" width="30" height="24" className="me-2 d-inline-block align-text-top" />
-                Best Store
+            <footer className="text-center p-3 border-top d-flex" >
+                        <img src="./logo.png" alt=""  height="34" className="me-2 d-inline-block align-text-top" />
+                        <h1 className="m-0" style={{fontFamily: "Quicksand, sans-serif", fontSize: "20px" ,fontWeight: "500" }}>Prime Store</h1>
             </footer>
         </>
     )
