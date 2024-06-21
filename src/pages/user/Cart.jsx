@@ -100,16 +100,17 @@ export default function Cart() {
             console.log(error);
         }
     }
-    function toIndianFormat(n) {
-    let num = n.toString().split('.');
-    let lastThree = num[0].substring(num[0].length - 3);
-    let otherNumbers = num[0].substring(0, num[0].length - 3);
-    if (otherNumbers !== '') {
-      lastThree = ',' + lastThree;
+function toIndianFormat(n) {
+        if (n === undefined) return
+        let num = n.toString().split('.');
+        let lastThree = num[0].substring(num[0].length - 3);
+        let otherNumbers = num[0].substring(0, num[0].length - 3);
+        if (otherNumbers !== '') {
+            lastThree = ',' + lastThree;
+        }
+        let result = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+        return num.length > 1 ? result + "." + num[1] : result;
     }
-    let result = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
-    return num.length > 1 ? result + "." + num[1] : result;
-  }
     return (
         <div className="container my-4">
             {Object.keys(cartDetails).length > 0 ? <div className="border rounded p-4">
