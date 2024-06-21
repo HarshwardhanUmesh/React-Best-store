@@ -100,6 +100,16 @@ export default function Cart() {
             console.log(error);
         }
     }
+    function toIndianFormat(n) {
+    let num = n.toString().split('.');
+    let lastThree = num[0].substring(num[0].length - 3);
+    let otherNumbers = num[0].substring(0, num[0].length - 3);
+    if (otherNumbers !== '') {
+      lastThree = ',' + lastThree;
+    }
+    let result = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+    return num.length > 1 ? result + "." + num[1] : result;
+  }
     return (
         <div className="container my-4">
             {Object.keys(cartDetails).length > 0 ? <div className="border rounded p-4">
@@ -121,7 +131,7 @@ export default function Cart() {
                                         <p>{entry[1].description.substring(0, 200) + "..."}</p>
                                     </div>
                                     <div className="col-md-2 text-center">
-                                        <h5>{entry[1].price}$</h5>
+                                        <h5>{toIndianFormat(entry[1].price)}₹</h5>
                                     </div>
                                     <div className="col-md-2 align-items-center text-center">
                                         <div className="d-flex mb-2  justify-content-center text-center">
@@ -140,7 +150,7 @@ export default function Cart() {
                 })}
                 <div className="row">
                     <div className="col-md-6">
-                        <big className="pt-4"><span className="fw-bold me-2 ">{`SubTotal (${Object.keys(cartDetails).length} items)`}:</span>{`${Object.values(cartDetails).reduce((acc, curr) => acc + (curr.checked == 1 ?curr.price * curr.quantity : 0 ), 0)} $`}</big>
+                        <big className="pt-4"><span className="fw-bold me-2 ">{`SubTotal (${Object.keys(cartDetails).length} items)`}:</span>{`${toIndianFormat(Object.values(cartDetails).reduce((acc, curr) => acc + (curr.checked == 1 ?curr.price * curr.quantity : 0 ), 0))} ₹`}</big>
                     </div>
                     <div className="col-md-6 text-end">
                             <button className="btn btn-warning btn-md" onClick={() => navigate("/user/checkout")}>Proceed to checkout</button>
